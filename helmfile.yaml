@@ -1,0 +1,17 @@
+repositories:
+ - name: local-chart
+   url: http://localhost:8080
+
+releases:
+- name: local-nginx
+  namespace: default
+  chart: local-chart/nginx
+  version: 0.1.0
+  values: 
+    - ./templated-values.yaml.gotmpl
+    - ./regular.values.yaml
+
+environments:
+  default:
+    values:
+      - ./local-env.yaml
